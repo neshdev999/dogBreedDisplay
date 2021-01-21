@@ -55,7 +55,7 @@ function getDogImage(breedType, defaultValAvailCheck) {
                 } else if (defaultValAvailCheck === false) {
                     generateImage(responseJson);
                 }
-                console.log(responseJson);
+
             }
         )
         .catch(error => alert('Something went wrong. Try again later.'));
@@ -136,8 +136,6 @@ $(window).bind("load", function() {
         .resize(positionFooter)
 });
 
-
-
 /* Initialize App */
 $(function() {
     // get Breed List loaded First
@@ -146,18 +144,9 @@ $(function() {
         let responseJson = await response.json();
         const temp = await generateBreedsArray(responseJson);
         const breed = temp;
-        console.log("temp");
-        console.log(temp);
-        console.log(breed);
         generateMainDropDown(breed);
         initialDefaultDogImages(breed);
         watchForm();
         generateFooter();
     })();
-    console.log('App loaded! Waiting for submit!');
-    // getBreedList();
-    // generateMainDropDown();
-    // initialDefaultDogImages();
-    // watchForm();
-    // generateFooter();
 });
