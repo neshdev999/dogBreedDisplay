@@ -53,6 +53,7 @@ function getDogImage(breedType, defaultValAvailCheck) {
                 if (defaultValAvailCheck === true) {
                     generateDefaultImages(responseJson);
                 } else if (defaultValAvailCheck === false) {
+
                     generateImage(responseJson);
                 }
 
@@ -74,11 +75,18 @@ function watchForm() {
             $(".dogImageContainer").remove();
         }
 
-        /* Get Breed of Dog From user */
-        var userSelectedBreed = $('#dog-select').val();
+        if (($('#dog-select').val()) === "") {
+            alert("Please select an option");
+        } else {
+            /* Get Breed of Dog From user */
+            var userSelectedBreed = $('#dog-select').val();
 
-        /* pass this value to fetching function */
-        getDogImage(userSelectedBreed, false);
+            /* pass this value to fetching function */
+            getDogImage(userSelectedBreed, false);
+
+        }
+
+
     });
 }
 
